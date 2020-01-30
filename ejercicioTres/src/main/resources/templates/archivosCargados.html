@@ -1,0 +1,40 @@
+<html xmlns:th="https://www.thymeleaf.org">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			  <a class="navbar-brand" th:href="@{/home}" >SubiendoArchivos.com</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarText">
+			    <ul class="navbar-nav mr-auto">
+			      <li class="nav-item">
+			        <a th:href="@{/home}" class="nav-link" >Volver al menú</a>
+			      </li>
+			      <li class="nav-item active" >
+			        <a th:href="@{/archivo/registros}" class="nav-link" >Archivos cargados</a>
+			      </li>
+			    </ul>
+			  </div>
+		</nav>
+		<table class="table">
+			<thead class="thead-dark">
+				    <tr>
+				      <th scope="col">Nombre</th>
+				      <th scope="col">Suma</th>
+				      <th scope="col">Fecha de creación</th>
+				    </tr>
+			  </thead>
+			  <tbody>
+				    <tr scope="row" th:each="a : ${archivos}">
+				      <td th:text="${a.filename}">&nbsp;</td>
+				      <td th:text="${a.filevalue}">&nbsp;</td>
+	    			  <td th:text="${a.processdate}">&nbsp;</td>
+				    </tr>
+			  </tbody>
+		</table>
+	</body>
+</html>
